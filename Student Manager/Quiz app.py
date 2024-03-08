@@ -76,8 +76,47 @@ def name_collection(self):
     names_list.append(name)
     print(names_list)
     self.quiz_frame.destroy()
+    Quiz(root)
+
+class Quiz:
+    def __init__(self, parent):
+        background_color="OldLace"
+        #frame set up
+        self.quiz_frame = Frame(parent, bg = background_color, padx=100, pady=100)
+        self.quiz_frame.grid()
+
+        #Randomiser will randomly pick a question
+        randomiser()
 
 
+        #Label widget for our heading
+        self.question_label = Label (self.quiz_frame, text = questions_answers[qnum][0], font=("Tw cen MT", "18", "bold"))
+        self.question_label.grid(row=0)
+
+        #holds the value of radio buttons
+        self.var1=IntVar()
+
+
+        #first radio button to hiold first choice answer
+        #Radio button 1
+        self.rb1 = Radiobutton (self.quiz, text = questions_answers[qnum][1],font=("Helvetica","12"), bg=background_color, value=1, variable=self.var1, pady=10)
+        self.rb1.grid(row=1, sticky=W)
+        #Radio button 2
+        self.rb2 = Radiobutton (self.quiz, text = questions_answers[qnum][2],font=("Helvetica","12"), bg=background_color, value=2, variable=self.var1, pady=10)
+        self.rb2.grid(row=2, sticky=W)
+        #Radio button 3
+        self.rb3 = Radiobutton (self.quiz, text = questions_answers[qnum][3],font=("Helvetica","12"), bg=background_color, value=3, variable=self.var1, pady=10)
+        self.rb3.grid(row=3, sticky=W)
+        #Radio button 4
+        self.rb4 = Radiobutton (self.quiz, text = questions_answers[qnum][4],font=("Helvetica","12"), bg=background_color, value=4, variable=self.var1, pady=10)
+        self.rb4.grid(row=4, sticky=W)
+        #Radio button 5
+        self.rb5 = Radiobutton (self.quiz, text = questions_answers[qnum][5],font=("Helvetica","12"), bg=background_color, value=5, variable=self.var1, pady=10)
+        self.rb5.grid(row=5, sticky=W)
+
+        #confirm answer button
+        self.confirm_button = Button(self.quiz_frame, text="Confirm", bg="pink")
+        self.confirm_button.grid(row=6)
 
 # Starting point of the program #
 randomiser()
