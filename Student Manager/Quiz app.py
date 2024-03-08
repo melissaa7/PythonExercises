@@ -1,8 +1,51 @@
+import random
 from tkinter import *
 
 names_list = []
+global questions_answers
+asked = []
 
+#Dictionary has key of number
+questions_answers = {
+    1: ["What must you do when you see blue and red flashing lights behind you?",
+        'Speed up to get out of theway','Slow down and drive carefully',
+        'Slow down and stop','Drive on as usual','Slow down and stop',3],
+    2: ["You may stop on motorwayonly if:",'if there is an emergency',
+        'To let down or pick up passengers','to make U-turn',
+        'To stop and take a photo','If there is an emegency',1],
+    3: ["When coming up to a pedestrian crossing without raised traffic island, what must you do?",
+        'Speed up before the pedestrians cross','Stop and give way to pedestrians on any part of the crossing',
+        'Sound the horn on your vehicle to warn the pedestrians',
+        'Slow down to 30kmh','Stop and give way to pederians on any part of the crossing',2],
+    4: ["Can you stop on a bus stop in a private motor vehicle?", 'Only between midnight and 6am',
+        'Under no circumstances','when dropping off passengers','Only it it is less than 5 minutes',
+        'Under no circumstances',2],
+    5: ["What is the maximum speed you may drive if you have a 'space saver wheel' fitted? (km/h)",
+        '70 km/h','100 km/h so you do not hold up traffic','80 km/h and if the wheel spacer displays a lower limit that applies',
+        '90 km/h','80 km/h and if the wheel spacer displays a lower limit that applies',3],
+    6: ["When following another vehicleon a dusty road, you should:",'Speed up to get passed',
+        "Turn your vehicle's windscreen wipers on",'Stay back from the dust cloud',
+        'Turn your vehicles headlights on', 'Stay back from the dust cloud',3],
+    7: ["What does the sign containing the letters 'LSZ' mean",'Low Safety zone', 'Lone star zone', 'Limited speed zone',
+        'Limited speed zone',4],
+    8: ["What speed are you allowed to pass a school bus that has stopped get on or off?",'20 km/h',
+        '30 km/h','70 km/h','10 km/h','20 km/h',1],
+    9: ["What is the maximum distance a load maqy extend in front of a car?",'2 meters forward of the front edge of the front seat',
+        '4 meters forward of the front edge of the front seat','3 meters forward of the front seat','2.5 meters forward of the front edge of the front seat',
+        '3 meters forward of the front edge of the front seat',3],
+    10: ["To avoid being blinded by the headlights of another vehicle coming towards you, what should you do?",
+         'Look to the left of the road','look to the center of the road',
+         'Wear sunglasses that have sufficient strength','Look to the right side of the road',
+         'Look to the left of the road',1]
+}
 
+def randomiser():
+    global qnum #The question number is the key in our dictionary questions_answers, we have 10 keys
+    qnum = random.randint(1,10)
+    if qnum not in asked:
+        asked.append(qnum)
+    elif qnum in asked:
+        randomiser()
 
 class QuizStarter:
     def __init__(self, parent):
@@ -35,7 +78,9 @@ def name_collection(self):
     self.quiz_frame.destroy()
 
 
+
 # Starting point of the program #
+randomiser()
 if __name__ =="_main_":
     root = Tk()
     root.title("NZ Road Rules Quiz")
