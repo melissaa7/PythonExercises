@@ -118,6 +118,8 @@ class Quiz:
         self.confirm_button = Button(self.quiz_frame, text="Confirm", bg="pink")
         self.confirm_button.grid(row=6)
 
+        #Editing the question label and radio buttons to show the next question data
+        
 # Starting point of the program #
 randomiser()
 if __name__ =="_main_":
