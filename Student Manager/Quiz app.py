@@ -68,7 +68,7 @@ class QuizStarter:
         self.entry_box.grind(row=2, pady=20)
 
         #Continue button
-        self.continue_button = Button (self.quiz_frame, text ="Continue", bg="light brown", command=self.name_collection)
+        self.continue_button = Button (self.quiz_frame, text ="Continue", bg="pink", command=self.name_collection)
         self.continue_button.grid(row=3,pady=20)
 
 def name_collection(self):
