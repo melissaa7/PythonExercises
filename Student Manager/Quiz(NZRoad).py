@@ -4,6 +4,7 @@ from tkinter import *
 names_list = []
 global questions_answers
 asked = []
+score=0
 
 questions_answers = {
     1: ["What must you do when you see blue and red flashing lights behind you?",
@@ -111,10 +112,24 @@ class Quiz:
         self.rb4.grid(row=4, sticky=W)
 
         #confirm answer button
-        self.confirm_button = Button(self.quiz_frame, text="Confirm", bg="pink")
+        self.confirm_button = Button(self.quiz_frame, text="Confirm", bg="pink", command=self.test_progress)
         self.confirm_button.grid(row=5, sticky=W)
 
+        #score label to show score(test result so far)
+        self.score_label
+    #Method for editing the question label and radio buttons to show the next question data
+    def questions_setup(self):
+        randomiser()
+        self.var1.set(0)
+        self.question_label.config(text=questions_answers[qnum][0])
+        self.rb1.config(text=questions_answers[qnum][1])
+        self.rb2.config(text=questions_answers[qnum][2])
+        self.rb3.config(text=questions_answers[qnum][3])
+        self.rb4.config(text=questions_answers[qnum][4])
 
+    #This is the method that would get invoked with confirm answer button is clicked, to take care of progress
+    def tes_progress(self):
+        global score
 
 #Starting Point of the Page #
 if __name__ == "__main__":
